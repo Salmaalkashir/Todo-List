@@ -108,7 +108,6 @@ class InProgressViewController: UIViewController, UITableViewDelegate, UITableVi
                 break
             }
         }
-        /**/
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -150,7 +149,6 @@ class InProgressViewController: UIViewController, UITableViewDelegate, UITableVi
             fireobjedit.taskpriorityy = firestoreinprogresstasks[indexPath.row].taskpriority
             fireobjedit.taskdatee = firestoreinprogresstasks[indexPath.row].taskdate
             fireobjedit.taskstatee = firestoreinprogresstasks[indexPath.row].taskstate
-          //  fireobjedit.id = firestoretodotasks[indexPath.row].id
             fireobjedit.indexpath = firestoreinprogresstasks[indexPath.row].id 
             self.navigationController?.pushViewController(fireobjedit, animated: true)
         }

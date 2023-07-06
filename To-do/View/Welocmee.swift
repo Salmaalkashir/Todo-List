@@ -77,7 +77,7 @@ class WelcomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func login(_ sender: Any) {
-       // log.setValue(true, forKey: "islogged")
+        log.setValue(true, forKey: "islogged")
         if usernamee.text == ""{
             emptyuser.isHidden = false
         }

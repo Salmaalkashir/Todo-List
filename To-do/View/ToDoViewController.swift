@@ -17,7 +17,7 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var searchbarr: UISearchBar!
     @IBOutlet weak var ToDoTable: UITableView!
-    
+    @IBOutlet weak var addbtn: UIButton!
     var coreobjvm : CoreDataViewModel?
     var tasksarray : [NSManagedObject]?
     var searcharray : [NSManagedObject]?
@@ -41,7 +41,6 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         ToDoTable.dataSource = self
 
         searchbarr.delegate = self
-        print("ana el user aho:\(user)")
         
         coreobjvm = CoreDataViewModel()
         reachability = Reachability.forInternetConnection()
@@ -61,7 +60,9 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.pushViewController(addobj, animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
-       
+        
+        ApplyConstraints()
+
         tasksarray = coreobjvm?.fetchdata(state: "ToDo", user: UserDefaults.standard.string(forKey: "useremail") ?? "")
         searcharray = tasksarray
         searchfire = firestoretodotasks
@@ -71,7 +72,6 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func logoutt(_ sender: Any) {
         log.setValue(false, forKey: "islogged")
-        print("ana shaghal")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -174,6 +174,17 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
        
     }
+    
+    func ApplyConstraints()
+    {
+        addbtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            addbtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -1 * (UIScreen.main.bounds.height / 20)),
+              addbtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+              addbtn.heightAnchor.constraint(equalToConstant: 50),
+              addbtn.widthAnchor.constraint(equalToConstant: 50)
+          ])
+    }
 
 }
 extension ToDoViewController : UISearchBarDelegate 
@@ -193,8 +204,5 @@ extension ToDoViewController : UISearchBarDelegate
     }
 
 }
-
-
-
 
 
