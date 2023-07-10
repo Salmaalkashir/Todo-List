@@ -2,7 +2,6 @@
 //  ToDoTableViewCell.swift
 //  To-do
 //
-//  Created by Salma on 04/04/2023.
 //
 
 import UIKit

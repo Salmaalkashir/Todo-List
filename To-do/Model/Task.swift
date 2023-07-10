@@ -2,7 +2,6 @@
 //  Task.swift
 //  To-do
 //
-//  Created by Salma on 07/04/2023.
 //
 
 import Foundation

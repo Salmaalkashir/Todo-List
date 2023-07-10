@@ -133,7 +133,6 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if((self.reachability!.isReachable()))
                 {
                     self.firestoreobjvm?.deletetasks(id: (self.searchfire?[indexPath.row].id) as? String ?? "")
-                    print(self.searchfire?[indexPath.row].id)
                     self.ToDoTable.reloadData()
                 }
                 else
